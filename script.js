@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     while (true) {
-        let HumanChoice = prompt("Enter your choice(rock/paper/scissor)").toLowerCase();
+        let HumanChoice = prompt("Enter your choice(rock/paper/scissors)").toLowerCase();
         if (HumanChoice === "rock" || HumanChoice === "paper" || HumanChoice === "scissors") {
             return HumanChoice;
         } 
@@ -36,9 +36,11 @@ function playround(Humanselection,Computerselection) {
                 console.log("It's a tie!");
                 break;    
             case "paper":
+                ComputerScore++;
                 console.log("Computer wins!");
                 break;
             case "scissors":
+                HumanScore++;
                 console.log("Congrats! You win!");
                 break;
         }
@@ -50,9 +52,11 @@ function playround(Humanselection,Computerselection) {
                 console.log("It's a tie!");
                 break;
             case "scissors":
+                ComputerScore++;
                 console.log("Computer wins!");
                 break;
             case "rock":
+                HumanScore++;
                 console.log("Congrats! You win!");
                 break;        
 
@@ -64,9 +68,11 @@ function playround(Humanselection,Computerselection) {
                 console.log("It's a tie!");
                 break;
             case "rock":
+                ComputerScore++;
                 console.log("Computer wins!");
                 break;   
             case "paper":
+                HumanScore++;
                 console.log("Congrats! You win!");
                 break;        
 
@@ -83,3 +89,4 @@ let Computerselection = getComputerChoice();
 console.log(`Player Choice: ${Humanselection}`);
 console.log(`Computer Choice: ${Computerselection}`);
 playround(Humanselection,Computerselection);
+console.log(`Final score: Player: ${HumanScore}, Computer: ${ComputerScore}`);
