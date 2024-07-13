@@ -18,11 +18,10 @@ function getHumanChoice() {
             return HumanChoice;
         } 
         else {
-            console.log("Enter a valid choice!");
+            window.prompt("Enter a valid choice!(rock/paper/scissors)");
         }     
     }
 }
-
 
 let HumanScore = 0;
 let ComputerScore = 0;
@@ -37,11 +36,11 @@ function playround(Humanselection,Computerselection) {
                 break;    
             case "paper":
                 ComputerScore++;
-                console.log("Computer wins!");
+                console.log("Computer wins the round!");
                 break;
             case "scissors":
                 HumanScore++;
-                console.log("Congrats! You win!");
+                console.log("Congrats! You won the round!");
                 break;
         }
     }
@@ -53,11 +52,11 @@ function playround(Humanselection,Computerselection) {
                 break;
             case "scissors":
                 ComputerScore++;
-                console.log("Computer wins!");
+                console.log("Computer wins the round!");
                 break;
             case "rock":
                 HumanScore++;
-                console.log("Congrats! You win!");
+                console.log("CCongrats! You won the round!");
                 break;        
 
         }
@@ -69,24 +68,27 @@ function playround(Humanselection,Computerselection) {
                 break;
             case "rock":
                 ComputerScore++;
-                console.log("Computer wins!");
+                console.log("Computer wins the round!");
                 break;   
             case "paper":
                 HumanScore++;
-                console.log("Congrats! You win!");
+                console.log("Congrats! You won the round!");
                 break;        
-
         }
     }
     else {
         return "Invalid";
     }
 }
+function playGame() {
+        while(HumanScore < 5 && ComputerScore < 5) {
+            let Humanselection = getHumanChoice();
+            let Computerselection = getComputerChoice();
+            console.log(`Player Choice: ${Humanselection}`);
+            console.log(`Computer Choice: ${Computerselection}`);
+            playround(Humanselection,Computerselection);
+            console.log(`Score: Player: ${HumanScore}, Computer: ${ComputerScore}`);
+        }
 
-let Humanselection = getHumanChoice();
-let Computerselection = getComputerChoice();
-
-console.log(`Player Choice: ${Humanselection}`);
-console.log(`Computer Choice: ${Computerselection}`);
-playround(Humanselection,Computerselection);
-console.log(`Final score: Player: ${HumanScore}, Computer: ${ComputerScore}`);
+}
+playGame();
