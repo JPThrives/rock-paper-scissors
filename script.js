@@ -32,39 +32,48 @@ function playround(Humanselection,Computerselection) {
         
         switch (Computerselection) {
             case "rock":
-                return "It's a tie!";   
+                console.log("It's a tie!");
+                break;    
             case "paper":
                 ComputerScore++;
-                return "Computer wins the round!";
+                console.log("Computer wins the round!");
+                break;
             case "scissors":
                 HumanScore++;
-                return "Congrats! You won the round!";
+                console.log("Congrats! You won the round!");
+                break;
         }
     }
     else if (Humanselection == "paper") {
         
         switch (Computerselection) {
             case "paper":
-                return "It's a tie!"; 
+                console.log("It's a tie!");
+                break;
             case "scissors":
                 ComputerScore++;
-                return "Computer wins the round!";
+                console.log("Computer wins the round!");
+                break;
             case "rock":
                 HumanScore++;
-                return "Congrats! You won the round!";      
+                console.log("CCongrats! You won the round!");
+                break;        
 
         }
     }
     else if (Humanselection == "scissors"){
         switch (Computerselection) {
             case "scissors":
-                return "It's a tie!";
+                console.log("It's a tie!");
+                break;
             case "rock":
                 ComputerScore++;
-                return "Computer wins the round!";  
+                console.log("Computer wins the round!");
+                break;   
             case "paper":
                 HumanScore++;
-                return "Congrats! You won the round!";       
+                console.log("Congrats! You won the round!");
+                break;        
         }
     }
     else {
@@ -80,6 +89,10 @@ function playGame() {
             playround(Humanselection,Computerselection);
             console.log(`Score: Player: ${HumanScore}, Computer: ${ComputerScore}`);
         }
-
+        if (HumanScore === 5) {
+            alert("Congrats! You won the game!");
+        } else {
+            alert("Computer wins the game!");
+        }
 }
 playGame();
