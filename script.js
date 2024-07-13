@@ -32,48 +32,39 @@ function playround(Humanselection,Computerselection) {
         
         switch (Computerselection) {
             case "rock":
-                console.log("It's a tie!");
-                break;    
+                return "It's a tie!";   
             case "paper":
                 ComputerScore++;
-                console.log("Computer wins the round!");
-                break;
+                return "Computer wins the round!";
             case "scissors":
                 HumanScore++;
-                console.log("Congrats! You won the round!");
-                break;
+                return "Congrats! You won the round!";
         }
     }
     else if (Humanselection == "paper") {
         
         switch (Computerselection) {
             case "paper":
-                console.log("It's a tie!");
-                break;
+                return "It's a tie!"; 
             case "scissors":
                 ComputerScore++;
-                console.log("Computer wins the round!");
-                break;
+                return "Computer wins the round!";
             case "rock":
                 HumanScore++;
-                console.log("CCongrats! You won the round!");
-                break;        
+                return "Congrats! You won the round!";      
 
         }
     }
     else if (Humanselection == "scissors"){
         switch (Computerselection) {
             case "scissors":
-                console.log("It's a tie!");
-                break;
+                return "It's a tie!";
             case "rock":
                 ComputerScore++;
-                console.log("Computer wins the round!");
-                break;   
+                return "Computer wins the round!";  
             case "paper":
                 HumanScore++;
-                console.log("Congrats! You won the round!");
-                break;        
+                return "Congrats! You won the round!";       
         }
     }
     else {
