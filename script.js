@@ -11,7 +11,7 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
+/*function getHumanChoice() {
     while (true) {
         let HumanChoice = prompt("Enter your choice(rock/paper/scissors)").toLowerCase();
         if (HumanChoice === "rock" || HumanChoice === "paper" || HumanChoice === "scissors") {
@@ -21,26 +21,28 @@ function getHumanChoice() {
             window.prompt("Enter a valid choice!(rock/paper/scissors)");
         }     
     }
-}
+}*/
 
 let HumanScore = 0;
 let ComputerScore = 0;
 
 function playround(Humanselection,Computerselection) {
 
+    let resultMessage = "";
+
     if (Humanselection == "rock") {
         
         switch (Computerselection) {
             case "rock":
-                console.log("It's a tie!");
+                resultMessage = "It's a tie!";
                 break;    
             case "paper":
                 ComputerScore++;
-                console.log("Computer wins the round!");
+                resultMessage = "Computer wins the round!";
                 break;
             case "scissors":
                 HumanScore++;
-                console.log("Congrats! You won the round!");
+                resultMessage = "Congrats! You won the round!";
                 break;
         }
     }
@@ -48,15 +50,15 @@ function playround(Humanselection,Computerselection) {
         
         switch (Computerselection) {
             case "paper":
-                console.log("It's a tie!");
+                resultMessage = "It's a tie!";
                 break;
             case "scissors":
                 ComputerScore++;
-                console.log("Computer wins the round!");
+                resultMessage = "Computer wins the round!";
                 break;
             case "rock":
                 HumanScore++;
-                console.log("CCongrats! You won the round!");
+                resultMessage = "Congrats! You won the round!";
                 break;        
 
         }
@@ -64,23 +66,39 @@ function playround(Humanselection,Computerselection) {
     else if (Humanselection == "scissors"){
         switch (Computerselection) {
             case "scissors":
-                console.log("It's a tie!");
+                resultMessage = "It's a tie!";
                 break;
             case "rock":
                 ComputerScore++;
-                console.log("Computer wins the round!");
+                resultMessage = "Computer wins the round!";
                 break;   
             case "paper":
                 HumanScore++;
-                console.log("Congrats! You won the round!");
+                resultMessage = "Congrats! You won the round!";
                 break;        
         }
     }
     else {
-        return "Invalid";
+        resultMessage = "Invalid!";
+    }
+    document.getElementById("result").innerText = resultMessage;
+    document.getElementById("score").innerText = `score: Player: ${HumanScore}, Computer: ${ComputerScore}`;
+
+    if (HumanScore === 5) {
+        document.getElementById("winner").innerText = "Congrats! You won the game.";
+        resetGame();
+    }
+    else if (ComputerScore === 5) {
+        document.getElementById("winner").innerText = "Computer wins the game.";
+        resetGame();
     }
 }
-function playGame() {
+
+function resetGame() {
+    HumanScore = 0;
+    ComputerScore = 0;
+}
+/*function playGame() {
         while(HumanScore < 5 && ComputerScore < 5) {
             let Humanselection = getHumanChoice();
             let Computerselection = getComputerChoice();
@@ -95,4 +113,17 @@ function playGame() {
             alert("Computer wins the game!");
         }
 }
-playGame();
+playGame(); */
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", function() {
+        let Humanselection = this.id;
+        let Computerselection = getComputerChoice();
+        
+        playround(Humanselection, Computerselection);
+        
+        console.log(`Score: Player: ${HumanScore}, Computer: ${ComputerScore}`);
+    });
+});
+
